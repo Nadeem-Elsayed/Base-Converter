@@ -8,11 +8,9 @@
  *Nadeem Elsayed October 29, 2024
  */
 
-usage() {
-	fprintf(stderr, "USAGE:
-			convert [-b BASE] [-r START FINISH]
-			1 < BASE < 37
-			START and FINISH are long integers");
+int usage() {
+	fprintf(stderr, "USAGE:\nconvert [-b BASE] [-r START FINISH]\n1 < BASE < 37\nSTART and FINISH are long integers");
+	return EXIT_SUCCESS;
 }
 
 //checks that the given input is valid, otherwise prints usage

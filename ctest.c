@@ -7,6 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
+int main(int argc, int *argv[]) {
 	puts("This is just a test!");
 }

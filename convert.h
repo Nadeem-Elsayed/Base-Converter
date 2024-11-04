@@ -1,1 +1,1 @@
-int convert(int argc char *argv[]);
+int convert(int argc, char *argv[]);
