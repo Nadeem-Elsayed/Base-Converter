@@ -1,0 +1,31 @@
+name: build script for convert.c		
+
+on:							
+  push:
+    branches: [ "main" ]			
+
+jobs:
+  build:						
+    runs-on: ubuntu-latest			
+    steps:
+      - uses: actions/checkout@v4		
+
+      - name: build convert			
+        run: make convert
+
+      - name: upload binary			
+        uses: actions/upload-artifact@v4	
+        with:
+          name: convert Artifact		
+          path: ./convert
+
+      - name: Run Tests
+        run: make ctest; ./test_script > test_results.txt; gcov ctest-convert.c
+
+      - name: Upload Test Results
+        if ${{ always() }}
+
+        uses: actions/ipload-artifact@v4
+        with:
+          name: Test Results
+          path: ./test_results.txt
