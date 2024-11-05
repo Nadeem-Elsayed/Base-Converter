@@ -1,4 +1,4 @@
-convert: convert.c
-	gcc -o convert convert.c
-coverage: convert.c ctest.c convert.h
-	gcc -o ctest --coverage ctest.c convert.c
+convert: convert.c input.c input.h
+	gcc -o convert convert.c input.c
+coverage: ctest.c convert.c convert.h input.c input.h
+	gcc -o ctest --coverage ctest.c convert.c input.c
