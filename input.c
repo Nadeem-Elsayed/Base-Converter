@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define max 36
+#define min 2
 /*
  * input.c
  * checks that the inputs given to convert utility are proper
@@ -28,7 +30,7 @@ int checkInput (int argc, char *argv[]) {
 		help();
 		return EXIT_FAILURE;
 	} else if (argc == 3) {//if 3 arguments including call
-		if (strcmp(argv[1], "-b") == 0 && atol(argv[2]) > 1 && atol(argv[2]) < 37) {//if proper base and base range
+		if (strcmp(argv[1], "-b") == 0 && atol(argv[2]) >= min && atol(argv[2]) <= max) {//if proper base and base range
 			return EXIT_SUCCESS;
 		} else {//improper base or base out of range
 			usage();
@@ -66,7 +68,7 @@ int checkInput (int argc, char *argv[]) {
 		}
 	} else if (argc == 6) {//if 6 arguments including call
 		//if proper base, and range given
-		if (strcmp(argv[1], "-b") == 0 && atol(argv[2]) > 1 && atol(argv[2]) < 37 && strcmp(argv[3], "-r") == 0) {
+		if (strcmp(argv[1], "-b") == 0 && atol(argv[2]) >= min && atol(argv[2]) <= max && strcmp(argv[3], "-r") == 0) {
 			/*if both numbers are zero before conversion failure
 			*i'm doing this because conversion failure returns zero
 			*checking beforehand prevents confusion
