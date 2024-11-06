@@ -1,0 +1,6 @@
+
+Converts numbers of a range or numbers from stdin to a given base or a default of 16
+bases can be from 2-36
+With no FILE, or when FILE is -, read standard input.
+       -b=NUM read from standard input and convert to base NUM
+       -r=NUM NUM convert values in following range to base

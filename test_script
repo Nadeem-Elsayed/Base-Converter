@@ -83,6 +83,9 @@ test './ctest -b 37' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/usag
 test './ctest -b 16 -b' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/usage.txt'
 test './ctest -b 16 -r 5' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/usage.txt'
 test './ctest -b 16 -s 1 2' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/usage.txt'
+
+#help
+test './ctest --help' 'testcases/empty.txt' 'testcases/help.txt' 'testcases/usage.txt'
 #testing default base
 test './ctest' 'testcases/inp1.txt' 'testcases/ex_out1.txt' 'testcases/empty.txt'
 
@@ -99,8 +102,8 @@ test './ctest -r h 0' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/usa
 test './ctest -r 2 1' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/empty.txt'
 
 #testing given range
-test './ctest -b 16 -r 0 0' 'testcases/empty.txt' 'testcases/zerofile' 'testcases/empty.txt'
-test './ctest -r 0 0' 'testcases/empty.txt' 'testcases/zerofile' 'testcases/empty.txt'
+test './ctest -b 16 -r 0 0' 'testcases/empty.txt' 'testcases/zerofile.txt' 'testcases/empty.txt'
+test './ctest -r 0 0' 'testcases/empty.txt' 'testcases/zerofile.txt' 'testcases/empty.txt'
 test './ctest -r 1 5' 'testcases/empty.txt' 'testcases/onetofive.txt' 'testcases/empty.txt'
 # clean up
 rm test_err.txt test_out.txt

@@ -63,10 +63,6 @@ int *findValues(int base, long num, int *p, int* currentLength){
 */
 void convertBase(int base, int *a, int length){
 	char ichar;
-	if (length == 0) {
-		printf("0\n");
-		return;
-	}
 	for (int i = length - 1; i >= 0; i--) {  // start from most significant to least significant
 			if (abs(a[i]) < 10) {//characters from 0-9 are together in ASCII
 				ichar = '0' + abs(a[i]);

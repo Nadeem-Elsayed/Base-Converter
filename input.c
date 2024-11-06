@@ -9,15 +9,24 @@
  */
 
 //outlines usage of function
-int usage() {
+void usage() {
         fprintf(stderr, "Usage: convert [-b BASE] [-r START FINISH]\n       1 < BASE < 37\n       START and FINISH are long integers\n");
-        return EXIT_FAILURE;
 }
-
+int help() {
+	usage();
+	printf("\nConverts numbers of a range or numbers from stdin to a given base or a default of 16\n");
+	printf("bases can be from 2-36\n");
+	printf("With no FILE, or when FILE is -, read standard input.\n");
+	printf("       -b=NUM read from standard input and convert to base NUM\n");
+	printf("       -r=NUM NUM convert values in following range to base");
+}
 //checks that the given input is valid, otherwise prints usage
 int checkInput (int argc, char *argv[]) {
 	if (argc == 1) {
 		return EXIT_SUCCESS;
+	} else if (argc == 2 && strcmp(argv[1], "--help") == 0) {
+		help();
+		return EXIT_FAILURE;
 	} else if (argc == 3) {//if 3 arguments including call
 		if (strcmp(argv[1], "-b") == 0 && atol(argv[2]) > 1 && atol(argv[2]) < 37) {//if proper base and base range
 			return EXIT_SUCCESS;
