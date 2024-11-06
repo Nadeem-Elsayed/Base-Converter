@@ -89,13 +89,19 @@ test './ctest' 'testcases/inp1.txt' 'testcases/ex_out1.txt' 'testcases/empty.txt
 #testing given base
 test './ctest -b 2' 'testcases/inp2.txt' 'testcases/ex_out2.txt' 'testcases/empty.txt'
 test './ctest -b 16' 'testcases/inp3.txt' 'testcases/ex_out3.txt' 'testcases/errorNoLong.txt'
+
 #testing improper range
 test './ctest -b 16 -r 2 1' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/empty.txt'
 test './ctest -b 16 -r h 1' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/usage.txt'
 test './ctest -b 16 -r 1 h' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/usage.txt'
+test './ctest -r 0 h' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/usage.txt'
+test './ctest -r h 0' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/usage.txt'
+test './ctest -r 2 1' 'testcases/empty.txt' 'testcases/empty.txt' 'testcases/empty.txt'
+
 #testing given range
 test './ctest -b 16 -r 0 0' 'testcases/empty.txt' 'testcases/zerofile' 'testcases/empty.txt'
-
+test './ctest -r 0 0' 'testcases/empty.txt' 'testcases/zerofile' 'testcases/empty.txt'
+test './ctest -r 1 5' 'testcases/empty.txt' 'testcases/onetofive.txt' 'testcases/empty.txt'
 # clean up
 rm test_err.txt test_out.txt
 

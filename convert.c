@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 		if (isRange(argc, argv) == EXIT_SUCCESS) {//if range given
 			long start;
 			long end;
-			getRange(argv, &start, &end);
+			getRange(argc, argv, &start, &end);
 			result = rangeConvert(base, start, end);
 			return EXIT_SUCCESS;
 		} else {
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
 int *findValues(int base, long num, int *p, int* currentLength){
 	//---------edge cases------------
 	if (num == 0 && *currentLength == 0) {
-		currentLength++;
+		(*currentLength)++;
         p[0] = 0;  // Handle 0 case directly
         return p;
     }
@@ -86,7 +86,7 @@ void convertBase(int base, int *a, int length){
  *uses recursion
  */
 void convert(long base, long num) {
-	int *a = calloc(64, sizeof(char));
+	int *a = calloc(64, sizeof(int));
 	int length = 0;
 	findValues(base, num, a, &length);//side effect length
 	convertBase(base, a, length);
