@@ -1,0 +1,11 @@
+#!/bin/bash
+#simplifies the process of testing and stuff
+
+rm *.gcda
+rm *.gcov
+rm *.gcno
+rm ctest
+make ctest
+test_script
+gcov ctest-input.c
+gcov ctest-convert.c

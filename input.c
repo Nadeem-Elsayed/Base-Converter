@@ -49,8 +49,6 @@ int checkInput (int argc, char *argv[]) {
 				if (end == 0) {//conversion failed
 						usage();
 						return EXIT_FAILURE;
-				} else {
-					return EXIT_SUCCESS;
 				}
 			}
 			return EXIT_SUCCESS;

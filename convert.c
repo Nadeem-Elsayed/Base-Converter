@@ -22,9 +22,14 @@ int main(int argc, char *argv[]) {
 			long start;
 			long end;
 			getRange(argv, &start, &end);
-			rangeConvert(base, start, end);
+			result = rangeConvert(base, start, end);
+			return EXIT_SUCCESS;
 		} else {
-			readConvert(base);
+			result = readConvert(base);
+			if (result == EXIT_FAILURE) {
+				return EXIT_FAILURE;
+			}
+			return EXIT_SUCCESS;
 		}
 	} else {//if input does not match format
 		return EXIT_FAILURE;
@@ -81,11 +86,7 @@ void convertBase(int base, int *a, int length){
  *uses recursion
  */
 void convert(long base, long num) {
-	int *a = calloc(64,sizeof(long));
-	
-	if (a == NULL) {//ifa contiguous block of memory couldn't be found
-		fprintf(stderr, "No Space Found for Memory");
-	}
+	int *a = calloc(64, sizeof(char));
 	int length = 0;
 	findValues(base, num, a, &length);//side effect length
 	convertBase(base, a, length);
